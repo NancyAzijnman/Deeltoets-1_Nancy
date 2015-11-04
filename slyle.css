@@ -1,0 +1,2331 @@
+/*https://gist.github.com/gormus/2314054*/
+
+*{
+	box-sizing:border-box;
+}
+
+
+
+/*Algemene css*/
+body	{
+	font-family: 'Open Sans', sans-serif;
+	/**font-family: 'Questrial', Arial, sans-serif;*/
+	font-size: 1.1em;
+/*	line-height: 1.4em;*/
+	color:#333;
+}
+
+h1, h2 {
+	text-align: center;
+	font-size: 1.4em;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+a {
+	color: #ffa200; 
+}
+a:hover {
+	color: #333;
+}
+
+main > article > section > picture > img {
+	width: 70%;
+}
+		/*box-shadow: 2px 2px 4px #000000;*/
+
+
+
+
+
+
+
+
+
+/*mobile first*/
+@media screen and (max-width: 30em){
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+/*Volgorde in de container meteen vaststellen*/
+#headerTop 			{order: 1;}
+main 				{order: 3;}
+.related 			{order: 4;}
+aside 				{order: 2;}
+footer 				{order: 5;}
+
+/*header*/
+	#headerTop {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+/*Eerst box volgorde maken in de header*/
+	#headerTop > img										{order:1;}
+	#headerTop > label 										{order:2;}
+	p.to-profile 											{order:3;}
+	#headerTop > label:first-of-type 						{order:4;}
+	#headerTop > #search > form 							{order:5;}
+	#headerTop > #headerMenu  								{order:6;}
+
+
+	#headerTop {
+		background: url(img/cmd_beeldbank_meerdere_02.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	  	height: 30em;
+	}
+
+/*cmd amsterdam - intranet*/
+	#headerTop > h1:first-of-type {
+		display: none;
+	}
+
+/*Communication and Multimedia Design - slogan*/
+	#headerTop > p:first-of-type {
+		display: none;
+	}
+
+/*logo*/
+	#headerTop > img	{
+		width: 55%;
+		height: 10%;
+
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > img:hover	{
+		cursor: pointer;
+
+	}
+
+/* navigatie icon toggle */
+
+	#headerTop >  label:first-of-type {
+		width: 15%;
+		height: 10%;
+		padding-top: 0.5em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #headerMenu-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#headerTop > #headerMenu {
+	  display: none;
+	}
+	#headerTop > #headerMenu-toggle:checked + #headerMenu {
+	  display: block;
+	}
+
+/*navigatie*/
+/*
+	#headerTop > #headerMenu > nav {
+		display: flex;
+		flex-direction: column;		
+	}
+
+	#headerTop > #headerMenu > nav > ul > li {		
+
+	}
+
+	#headerTop > #headerMenu > nav > ul {
+		list-style: none;    	
+
+
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a {
+    	text-decoration: none;
+    	display: block;
+    	color: 	#333;
+    	font-size: 100%;
+
+		width: 100%;
+    	text-align:center;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a:hover {
+    	text-decoration: none;
+    	color: #ffa200;
+
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a.current {
+
+    	text-decoration: none;
+    	color: #ffa200;
+	}
+*/
+	#headerTop > #headerMenu  {
+		/*float: left; Hier door gaan de linkjes naar links*/
+
+		width: 100%;
+	
+	}
+
+	#headerTop > #headerMenu > nav > ul {
+		list-style-type: none;
+		width:100%;
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a {
+		display: block;
+		text-decoration: none;
+		font-size: 100%;
+		color: #333;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		margin-left: -2.5em; 
+		background: rgba(255,255,255, 0.8);	
+		text-align: center;
+		width: 100%;
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a:hover {
+		display: block;
+		text-decoration: none;
+		font-size: 100%;
+		color: #FFF;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		margin-left: -2.5em; 
+		background: rgba(255, 162, 0, 0.8);
+		text-align: center;
+		width: 100%;		
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a.current {
+		display: block;
+		text-decoration: none;
+		font-size: 100%;
+		color: #FFF;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		margin-left: -2.5em; 
+		background: rgba(255, 162, 0, 0.8);
+		text-align: center;
+		width: 100%;		
+	}
+
+
+
+
+
+/* zoek en klik */
+
+	#headerTop > #search {
+		width: 100%;
+		float: right;
+	}
+
+	#headerTop > #search > form  {
+		width: 100%;
+
+		display: flex;
+		height: 10%;
+		padding-top: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		background: rgba(255,255,255, 0.8);
+		border-radius: 2em;
+		margin-left: -1em;
+		margin-right: -3em;
+
+		/*padding-left: 2em;
+		padding-right: 2em;
+		align-items: baseline;*/
+	}
+
+	#headerTop > #search > form > span {
+		display: none;
+	}
+	#headerTop > #search > form > label {
+		width: 100%;
+	}
+	#headerTop > #search > form > label > input {
+		border-radius: 1em;
+		line-height: 2em;
+		margin-right: -3em;
+		width: 115%;
+
+	}
+
+	#headerTop > #search > form > button {
+	  background: #ffd22e;
+	  background-image: -webkit-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -moz-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -ms-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -o-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: linear-gradient(to bottom, #ffd22e, #f5bc00);
+	  -webkit-border-radius: 28;
+	  -moz-border-radius: 28;
+	  border-radius: 2em;
+	  color: #ffffff;
+	  padding-left:  1em;
+	  padding-right: 1em;
+	  height: 2.5em;
+	  text-decoration: none;
+
+	}
+
+
+	#headerTop >  label {
+		width: 15%;
+		height: 10%;
+		padding-top: 0.5em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #search-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#headerTop > #search {
+	  display: none;
+	}
+	#headerTop > #search-toggle:checked + #search {
+	  display: block;
+	}
+
+/* profielpagina link (class) elena harris */
+	p.to-profile  {
+		width: 15%;
+		height: 10%;
+		padding-top: 0.5em;
+		margin-top: -0em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+
+
+
+
+
+/*opleiding*/
+	main  {
+		width: 100%;
+		padding: 1em;
+	}
+
+	main > p {
+
+	}
+
+	main > article > header {
+		background-color: #fff;
+	}
+
+	main > article > header > p > span {
+		color: #333;
+		display: inline;
+	}
+
+	main > article > header > h1 {
+		color: #333;
+	}
+
+	main > article > header > h2 {
+		display: none;
+	}
+
+	main > article > section {
+		background-color: #fff;
+	}
+
+	main > article > section > p > em {
+		color: #333;
+	}
+
+	main > article > section > ol  {
+		list-style: none;
+	}
+
+	main > article {
+
+	}
+
+	main > article > section > img {
+		width: 50%;
+		height: auto;
+		transition: 1.5s;
+	}
+
+	main > article > section > img:hover {
+		transform: rotate(20deg) scale(2);
+background-colr: pink;
+opacity:0.5;
+	}
+
+/* artikelen (Meer lezen?) */
+
+	.related {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: 1em;
+		width: 100%;
+	}
+
+	.related > article {
+		width: 100%;
+		-webkit-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		-moz-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		padding: 1em;
+		background-color: #F9F9F9;
+		margin: 1em;
+	}
+	
+
+	.related > h2 {
+		width: 100%;
+		-webkit-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		-moz-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		padding: 1em;
+		background-color: #F9F9F9;
+		margin: 1em;
+	}
+	.related > article > header {	
+		background-color: #F9F9F9;
+		font-size: 70%
+	}
+
+	.related > article > header > p > a {
+		color: 	#ffa200;
+	}
+
+	.related > article > header > p > a:hover {
+		color: 	#333;
+	}
+
+	.related > article >  p > a {
+		color: 	#ffa200;
+	}
+
+	.related > article >  p > a:hover {
+		color: 	#333;
+	}
+
+
+
+/* laatste mededelingen */
+	aside {
+		width: 100%;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		margin-left: -1em;
+	}
+
+	aside > label:first-of-type > img:first-of-type {
+		width: 35%;
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+
+	aside > #mededelingen > section > h2 > a {
+		color: #ffa200;
+		}
+
+	aside > #mededelingen > section > article > p > a{
+		color: #ffa200;
+	}
+
+	aside > #mededelingen > section >  article {
+		display: flex; /*De article flex maken om de footer onderaan te plaatsen*/
+		flex-direction: column;
+		background-color: #F9F9F9;
+		padding: 1em;
+		border-bottom-style: solid;
+	    border-bottom-width: 0.2em;
+	    border-bottom-color: #ffa200;
+		/*margin-bottom: 1em;*/
+	}
+
+	aside > #mededelingen > section > article > footer {
+		order: 1;
+		font-size: 70%;
+	}
+
+
+/* toggle laatste mededelingen */
+	aside > label:last-of-type {
+	  	cursor: pointer;
+	}
+	#mededelingen-toggle {
+	  	display: none; /* hide the checkbox */
+	}
+	#mededelingen {
+	  	display: none;
+	}
+	#mededelingen-toggle:checked + #mededelingen {
+	  	display: block;
+	}
+
+
+
+
+	aside > label:last-of-type > img:last-of-type {
+		width:35%;
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+
+	aside > #uitagenda > section > h2 > a {
+		color: #ffa200;
+		}
+
+	aside > #uitagenda > section > article > p > a {
+		color: #ffa200;
+	}
+
+	aside > #uitagenda > section >  article {
+		display: flex; /*De article flex maken om de footer onderaan te plaatsen*/
+		flex-direction: column;
+		background-color: #F9F9F9;
+		padding: 1em;
+		border-bottom-style: solid;
+	    border-bottom-width: 0.2em;
+	    border-bottom-color: #ffa200;
+		/*margin-bottom: 1em;*/
+	}
+
+	aside > #uitagenda > section > article > footer {
+		order: 1;
+		font-size: 70%;
+		background: #F9F9F9;
+		height: 8em;
+	}
+
+	aside > #uitagenda > section > article > p {
+		background-color: #F9F9F9;
+	}
+
+
+
+/* toggle uitagenda */
+	label {
+	  cursor: pointer;
+	}
+	#uitagenda-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#uitagenda {
+	  display: none;
+	}
+	#uitagenda-toggle:checked + #uitagenda {
+	  display: block;
+	}
+
+
+
+/* footer */
+	footer  {
+		width: 100%;
+		display: flex;
+		flex-direction; row;
+		flex-wrap: wrap;
+		background: url(img/cmd_beeldbank_surveillance_03.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	  	height: 35em;
+
+		padding: 2em;
+	}
+
+	footer > label {
+		width: 100%;
+		height: 25%;
+		text-align: center;
+		margin-left: 3%;
+		margin-right: 3%;
+		padding-top: 2.2em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	footer > label:hover {
+		width: 100%;
+		height: 25%;
+		text-align: center;
+		margin-left: 3%;
+		margin-right: 3%;
+		padding-top: 2.2em;
+		background: rgba(255, 162, 0, 0.8);
+		color: #fff;
+	}
+
+	/*footer > label > p {
+	  			padding-left: 10em;
+		padding-right: 10em;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}*/
+
+/*sitemap*/
+
+
+
+/* toggle footer sitemap */
+
+	#footerSitemap-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerSitemap {
+	  display: none;
+	}
+	#footerSitemap-toggle:checked + #footerSitemap {
+	  display: block;
+	}
+
+/*style footer sitemap*/
+	#footerSitemap {
+		background: rgba(255,255,255, 0.8);
+		padding: 1em;
+		margin-left: 1em; 
+		margin-right: 1em;
+		width: 100%;
+	}
+
+	#footerSitemap > #sitemap {
+		padding: 1em;
+		width: 100%;
+		order:1;
+	}
+
+	#footerSitemap > #sitemap > h2 {
+		display: none;
+	}
+
+	#footerSitemap > #sitemap  ul {
+	  line-height: 1;
+	  margin: 0;
+	  float: left;
+	  padding: 0;
+	}
+	#footerSitemap > #sitemap  ul li {
+	  float: left;
+	  list-style: none outside none;
+	  max-width: 15em;
+	  padding: 0;
+	  width: auto;
+	}
+	#footerSitemap > #sitemap  ul li a {
+	  border-bottom: 3px solid #E1E1E1;
+	  display: inline-block;
+	  color: #333;
+	  font-weight: bold;
+	  line-height: 1.2;
+	  padding: 0.5em 10px 0.5em 3px;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	}
+	#footerSitemap > #sitemap ul li ul {
+	}
+	#footerSitemap > #sitemap  ul li ul li {
+	  float: none;
+	  width: auto;
+	}
+	#footerSitemap > #sitemap  ul li ul li ul {
+	  margin-left: 15px;
+	}
+	#footerSitemap > #sitemap ul li ul li a {
+	  border-bottom: 0 none;
+	  border-left: 3px solid #E1E1E1;
+	  font-weight: normal;
+	  padding-left: 10px;
+	  text-transform: none;
+	  color: #666;
+	}
+	#footerSitemap > #sitemap   a:hover {
+	  background-color: rgba(255, 204, 0, 0.2);
+	  border-color: #ffa200;
+	}
+
+
+/*contact*/
+	#footerContact {
+		margin-left: 1em; 
+		margin-right: 1em;
+		background: rgba(255,255,255, 0.8);	
+		text-align: center;
+		width: 100%;	
+	}
+
+	#footerContact > #contact {
+		padding: 1em;
+		order:2;
+	}
+/*contact toggle*/
+	#footerContact-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerContact {
+	  display: none;
+	}
+	#footerContact-toggle:checked + #footerContact {
+	  display: block;
+	}
+
+/*zoekbalk*/
+	#search {	
+		width: 100%;
+		text-align: center;
+		order:5;
+	}
+
+	#search > h2 {
+  		display: none;
+	}
+
+
+
+/*About*/
+	#footerAbout > #about {
+		padding: 1em;
+		width: 100%;	
+		text-align: center;
+		order:3;
+	}
+
+	#footerAbout {
+		padding: 1em;
+		margin-left: 1em; 
+		margin-right: 1em;
+		background: rgba(255,255,255, 0.8);		
+	}
+
+
+/*About toggle*/
+	#footerAbout-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerAbout {
+	  display: none;
+	}
+	#footerAbout-toggle:checked + #footerAbout {
+	  display: block;
+	}
+
+/*credits*/
+	#credits {
+		background-color: #fff;
+		text-align: center;
+		margin: 0.5em;
+		width: 100%;
+		font-size: 70%;
+		order:6;
+	}
+
+	#credits > h2 {
+		display: none;
+	}	
+/*feedback*/
+	#feedback {
+		margin-top: 10em;
+		background-color: #fff;
+		text-align: center;
+		width: 100%;
+		order:4;
+	}
+
+	#feedback > a {
+	text-decoration: none;
+	color: #ffa200;
+	}
+
+
+
+/*Formulier*/
+/*
+input:required{
+	border: 1px solid red;
+}
+*/
+main {
+
+} 
+
+
+em {
+	color: red;
+}
+
+label {
+	display: block;
+	margin: 0 0 1em;
+}
+
+legend{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-size: 1.5em;
+}
+
+
+span {
+	display: block;
+}
+
+main > form > label, input[type="radio"] + label{
+	display: inline;
+}
+
+main > form {
+	background: linear-gradient(45deg, #fff, #FFCC00);
+	padding: 1em;
+	border-radius: 1em;
+}
+
+main > form > fieldset{
+	border:none;
+}
+
+main > form > fieldset > fieldset {
+	border:none;
+}
+
+/*formulier Javascript*/
+.is-invisible{
+	display: none;
+}
+.is-visible {
+	display: block;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Tablet*/
+
+@media screen and (min-width: 30em) and (max-width: 60em) { 
+/*Algemene css*/
+body	{
+	font-family: 'Open Sans', sans-serif;
+	/**font-family: 'Questrial', Arial, sans-serif;*/
+	font-size: 1.0em;
+/*	line-height: 1.4em;*/
+	color:#333;
+}
+
+h1, h2 {
+	text-align: center;
+	font-size: 1.3em;
+}
+
+h3 {
+	font-size: 1.1em;
+}
+
+.container {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+/*Volgorde in de container meteen vaststellen*/
+#headerTop 			{order: 1;}
+main 				{order: 3;}
+.related 			{order: 4;}
+aside 				{order: 2;}
+footer 				{order: 5;}
+
+/*header*/
+	#headerTop {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+/*Eerst box volgorde maken in de header*/
+	#headerTop > img										{order:1;}
+	#headerTop > label 										{order:2;}
+	p.to-profile 											{order:3;}
+	#headerTop > label:first-of-type 						{order:4;}
+	#headerTop > #search > form 							{order:5;}
+	#headerTop > #headerMenu  								{order:6;}
+
+
+	#headerTop {
+		background: url(img/cmd_beeldbank_meerdere_02.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	  	height: 30em;
+	}
+
+/*cmd amsterdam - intranet*/
+	#headerTop > h1:first-of-type {
+		display: none;
+	}
+
+/*Communication and Multimedia Design - slogan*/
+	#headerTop > p:first-of-type {
+		display: none;
+	}
+
+/*logo*/
+	#headerTop > img	{
+		width: 55%;
+		height: 15%;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > img:hover	{
+		cursor: pointer;
+
+	}
+
+/* navigatie icon toggle */
+
+	#headerTop >  label:first-of-type {
+		width: 15%;
+		height: 15%;
+		padding-top: 1em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #headerMenu-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#headerTop > #headerMenu {
+	  display: none;
+	}
+	#headerTop > #headerMenu-toggle:checked + #headerMenu {
+	  display: block;
+	}
+
+/*navigatie*/
+/*
+	#headerTop > #headerMenu > nav {
+		display: flex;
+		flex-direction: column;		
+	}
+
+	#headerTop > #headerMenu > nav > ul > li {		
+
+	}
+
+	#headerTop > #headerMenu > nav > ul {
+		list-style: none;    	
+
+
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a {
+    	text-decoration: none;
+    	display: block;
+    	color: 	#333;
+    	font-size: 100%;
+
+		width: 100%;
+    	text-align:center;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a:hover {
+    	text-decoration: none;
+    	color: #ffa200;
+
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a.current {
+
+    	text-decoration: none;
+    	color: #ffa200;
+	}
+*/
+	#headerTop > #headerMenu  {
+		/*float: left; Hier door gaan de linkjes naar links*/
+
+		width: 100%;
+	
+	}
+
+	#headerTop > #headerMenu > nav > ul {
+		list-style-type: none;
+		width:100%;
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a {
+		display: block;
+		text-decoration: none;
+		font-size: 100%;
+		color: #333;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		margin-left: -2.5em; 
+		background: rgba(255,255,255, 0.8);	
+		text-align: center;
+		width: 100%;
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a:hover {
+		display: block;
+		text-decoration: none;
+		font-size: 100%;
+		color: #FFF;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		margin-left: -2.5em; 
+		background: rgba(255, 162, 0, 0.8);
+		text-align: center;
+		width: 100%;		
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a.current {
+		display: block;
+		text-decoration: none;
+		font-size: 100%;
+		color: #FFF;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		margin-left: -2.5em; 
+		background: rgba(255, 162, 0, 0.8);
+		text-align: center;
+		width: 100%;		
+	}
+
+
+/* zoek en klik */
+
+	#headerTop > #search {
+		width: 100%;
+		float: right;
+	}
+
+	#headerTop > #search > form  {
+		width: 100%;
+		display: flex;
+		height: 10%;
+		padding-top: 1em;
+		padding-left: 20%;
+		padding-right: 20%;
+		background: rgba(255,255,255, 0.8);
+		border-radius: 2em;
+		margin-left:  -1%;
+		margin-right: -10%;
+
+		/*padding-left: 2em;
+		padding-right: 2em;
+		align-items: baseline;*/
+	}
+
+	#headerTop > #search > form > span {
+		display: none;
+	}
+
+	#headerTop > #search > form > label {
+		width: 70%;
+	}
+
+	#headerTop > #search > form > label > input {
+		border-radius: 1em;
+		line-height: 2em;
+		width: 110%;
+	}
+
+	#headerTop > #search > form > button {
+	  background: #ffd22e;
+	  background-image: -webkit-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -moz-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -ms-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -o-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: linear-gradient(to bottom, #ffd22e, #f5bc00);
+	  -webkit-border-radius: 28;
+	  -moz-border-radius: 28;
+	  border-radius: 2em;
+	  color: #ffffff;
+	  padding-left:  2em;
+	  padding-right: 2em;
+	  height: 2.5em;
+	  text-decoration: none;
+
+
+
+	}
+
+
+	#headerTop >  label {
+		width: 15%;
+		height: 15%;
+		padding-top: 1em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #search-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#headerTop > #search {
+	  display: none;
+	}
+	#headerTop > #search-toggle:checked + #search {
+	  display: block;
+	}
+
+/* profielpagina link (class) elena harris */
+	p.to-profile  {
+		width: 15%;
+		height: 15%;
+		padding-top: 1em;
+		margin-top: -0em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+
+
+
+/*opleiding*/
+	main  {
+		width: 70%;
+		padding: 1em;
+		padding-left: 2em;
+	}
+
+	main > p {
+
+	}
+
+	main > article > header {
+		background-color: #fff;
+	}
+
+	main > article > header > p > span {
+		color: #333;
+		display: inline;
+	}
+
+	main > article > header > h1 {
+		color: #333;
+	}
+
+	main > article > header > h2 {
+		display: none;
+	}
+
+	main > article > section {
+		background-color: #fff;
+	}
+
+	main > article > section > p > em {
+		color: #333;
+	}
+
+	main > article > section > ol  {
+		list-style: none;
+	}
+
+	main > article {
+
+	}
+
+	main > article > section > img {
+		width: 50%;
+		height: auto;
+		transition: 1.5s;
+	}
+
+	main > article > section > img:hover {
+		transform: rotate(20deg) scale(2);
+background-colr: pink;
+opacity:0.5;
+	}
+
+/* artikelen (Meer lezen?) */
+
+	.related {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: 1em;
+		width: 100%;
+	}
+
+	.related > article {
+		width: 44%;
+		-webkit-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		-moz-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		padding: 1em;
+		background-color: #F9F9F9;
+		margin: 1em;
+	}
+	
+
+	.related > h2 {
+		width: 100%;
+		-webkit-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		-moz-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		padding: 1em;
+		background-color: #F9F9F9;
+		margin: 1em;
+	}
+	.related > article > header {	
+		background-color: #F9F9F9;
+		font-size: 70%
+	}
+
+	.related > article > header > p > a {
+		color: 	#ffa200;
+	}
+
+	.related > article > header > p > a:hover {
+		color: 	#333;
+	}
+
+	.related > article >  p > a {
+		color: 	#ffa200;
+	}
+
+	.related > article >  p > a:hover {
+		color: 	#333;
+	}
+
+
+
+/* laatste mededelingen */
+	aside {
+		width: 30%;
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+
+	aside > label:first-of-type > img:first-of-type {
+		width: 35%;
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+
+	aside > #mededelingen > section > h2 > a {
+		color: #ffa200;
+		}
+
+	aside > #mededelingen > section > article > p > a{
+		color: #ffa200;
+	}
+
+	aside > #mededelingen > section >  article {
+		display: flex; /*De article flex maken om de footer onderaan te plaatsen*/
+		flex-direction: column;
+		background-color: #F9F9F9;
+		padding: 1em;
+		border-bottom-style: solid;
+	    border-bottom-width: 0.2em;
+	    border-bottom-color: #ffa200;
+		/*margin-bottom: 1em;*/
+	}
+
+	aside > #mededelingen > section > article > footer {
+		order: 1;
+		font-size: 70%;
+	}
+
+
+/* toggle laatste mededelingen */
+	aside > label:last-of-type {
+	  	cursor: pointer;
+	}
+	#mededelingen-toggle {
+	  	display: none; /* hide the checkbox */
+	}
+	#mededelingen {
+	  	display: none;
+	}
+	#mededelingen-toggle:checked + #mededelingen {
+	  	display: block;
+	}
+
+
+
+
+	aside > label:last-of-type > img:last-of-type {
+		width:35%;
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+	aside > #uitagenda > section > h2 > a {
+		color: #ffa200;
+		}
+
+	aside > #uitagenda > section > article > p > a {
+		color: #ffa200;
+	}
+
+	aside > #uitagenda > section >  article {
+		display: flex; /*De article flex maken om de footer onderaan te plaatsen*/
+		flex-direction: column;
+		background-color: #F9F9F9;
+		padding: 1em;
+		border-bottom-style: solid;
+	    border-bottom-width: 0.2em;
+	    border-bottom-color: #ffa200;
+		/*margin-bottom: 1em;*/
+	}
+
+	aside > #uitagenda > section > article > footer {
+		order: 1;
+		font-size: 70%;
+		background: #F9F9F9;
+		height: 8em;
+	}
+
+	aside > #uitagenda > section > article > p {
+		background-color: #F9F9F9;
+	}
+
+
+
+/* toggle uitagenda */
+	label {
+	  cursor: pointer;
+	}
+	#uitagenda-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#uitagenda {
+	  display: none;
+	}
+	#uitagenda-toggle:checked + #uitagenda {
+	  display: block;
+	}
+
+
+
+/* footer */
+	footer  {
+		width: 100%;
+		display: flex;
+		flex-direction; row;
+		flex-wrap: wrap;
+		background: url(img/cmd_beeldbank_surveillance_03.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	  	height: 35em;
+
+		padding: 2em;
+	}
+
+	footer > label {
+		width: 100%;
+		height: 25%;
+		text-align: center;
+		margin-left: 3%;
+		margin-right: 3%;
+		padding-top: 2.2em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	footer > label:hover {
+		width: 100%;
+		height: 25%;
+		text-align: center;
+		margin-left: 3%;
+		margin-right: 3%;
+		padding-top: 2.2em;
+		background: rgba(255, 162, 0, 0.8);
+		color: #fff;
+	}
+
+	/*footer > label > p {
+	  			padding-left: 10em;
+		padding-right: 10em;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}*/
+
+/*sitemap*/
+
+
+
+/* toggle footer sitemap */
+
+	#footerSitemap-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerSitemap {
+	  display: none;
+	}
+	#footerSitemap-toggle:checked + #footerSitemap {
+	  display: block;
+	}
+
+/*style footer sitemap*/
+	#footerSitemap {
+		background: rgba(255,255,255, 0.8);
+		padding: 1em;
+		margin-left: 1em; 
+		margin-right: 1em;
+		width: 100%;
+	}
+
+	#footerSitemap > #sitemap {
+		padding: 1em;
+		width: 100%;
+		order:1;
+	}
+
+	#footerSitemap > #sitemap > h2 {
+		display: none;
+	}
+
+	#footerSitemap > #sitemap  ul {
+	  line-height: 1;
+	  margin: 0;
+	  float: left;
+	  padding: 0;
+	}
+	#footerSitemap > #sitemap  ul li {
+	  float: left;
+	  list-style: none outside none;
+	  max-width: 15em;
+	  padding: 0;
+	  width: auto;
+	}
+	#footerSitemap > #sitemap  ul li a {
+	  border-bottom: 3px solid #E1E1E1;
+	  display: inline-block;
+	  color: #333;
+	  font-weight: bold;
+	  line-height: 1.2;
+	  padding: 0.5em 10px 0.5em 3px;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	}
+	#footerSitemap > #sitemap ul li ul {
+	}
+	#footerSitemap > #sitemap  ul li ul li {
+	  float: none;
+	  width: auto;
+	}
+	#footerSitemap > #sitemap  ul li ul li ul {
+	  margin-left: 15px;
+	}
+	#footerSitemap > #sitemap ul li ul li a {
+	  border-bottom: 0 none;
+	  border-left: 3px solid #E1E1E1;
+	  font-weight: normal;
+	  padding-left: 10px;
+	  text-transform: none;
+	  color: #666;
+	}
+	#footerSitemap > #sitemap   a:hover {
+	  background-color: rgba(255, 204, 0, 0.2);
+	  border-color: #ffa200;
+	}
+
+
+/*contact*/
+	#footerContact {
+		margin-left: 1em; 
+		margin-right: 1em;
+		background: rgba(255,255,255, 0.8);	
+		text-align: center;
+		width: 100%;	
+	}
+
+	#footerContact > #contact {
+		padding: 1em;
+		order:2;
+	}
+/*contact toggle*/
+	#footerContact-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerContact {
+	  display: none;
+	}
+	#footerContact-toggle:checked + #footerContact {
+	  display: block;
+	}
+
+/*zoekbalk*/
+	#search {	
+		width: 100%;
+		text-align: center;
+		order:5;
+	}
+
+	#search > h2 {
+  		display: none;
+	}
+
+
+
+/*About*/
+	#footerAbout > #about {
+		padding: 1em;
+		width: 100%;	
+		text-align: center;
+		order:3;
+	}
+
+	#footerAbout {
+		padding: 1em;
+		margin-left: 1em; 
+		margin-right: 1em;
+		background: rgba(255,255,255, 0.8);		
+	}
+
+
+/*About toggle*/
+	#footerAbout-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerAbout {
+	  display: none;
+	}
+	#footerAbout-toggle:checked + #footerAbout {
+	  display: block;
+	}
+
+/*credits*/
+	#credits {
+		background-color: #fff;
+		text-align: center;
+		margin: 0.5em;
+		width: 100%;
+		font-size: 70%;
+		order:6;
+	}
+
+	#credits > h2 {
+		display: none;
+	}	
+/*feedback*/
+	#feedback {
+		margin-top: 10em;
+		background-color: #fff;
+		text-align: center;
+		width: 100%;
+		order:4;
+	}
+
+	#feedback > a {
+	text-decoration: none;
+	color: #ffa200;
+	}
+
+
+
+/*Formulier*/
+/*
+input:required{
+	border: 1px solid red;
+}
+*/
+main {
+
+} 
+
+
+em {
+	color: red;
+}
+
+label {
+	display: block;
+	margin: 0 0 1em;
+}
+
+legend{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-size: 1.5em;
+}
+
+
+span {
+	display: block;
+}
+
+main > form > label, input[type="radio"] + label{
+	display: inline;
+}
+
+main > form {
+	background: linear-gradient(45deg, #fff, #FFCC00);
+	padding: 1em;
+	border-radius: 1em;
+}
+
+main > form > fieldset{
+	border:none;
+}
+
+main > form > fieldset > fieldset {
+	border:none;
+}
+
+/*formulier Javascript*/
+.is-invisible{
+	display: none;
+}
+.is-visible {
+	display: block;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Desktop screen*/
+@media screen and (min-width: 60em) { 
+.container {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+/*Volgorde in de container meteen vaststellen*/
+#headerTop 			{order: 1;}
+main 				{order: 3;}
+.related 			{order: 4;}
+aside 				{order: 2;}
+footer 				{order: 5;}
+
+/*header*/
+	#headerTop {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+/*Eerst box volgorde maken in de header*/
+	#headerTop > img										{order:1;}
+	#headerTop > #headerMenu        						{order:2;}
+	p.to-profile 											{order:3;}
+	#headerTop > label										{order:4;}
+	#headerTop > #search > form 							{order:5;}
+
+
+
+
+	#headerTop {
+		background: url(img/cmd_beeldbank_meerdere_02.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	  	height: 30em;
+	}
+
+/*cmd amsterdam - intranet*/
+	#headerTop > h1:first-of-type {
+		display: none;
+	}
+
+/*Communication and Multimedia Design - slogan*/
+	#headerTop > p:first-of-type {
+		display: none;
+	}
+
+/*logo*/
+	#headerTop > img	{
+		width: 17%;
+		height: 15%;
+		padding-left: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > img:hover	{
+		cursor: pointer;
+	}
+
+/* navigatie */
+	#headerTop > label:first-of-type {
+		display: none;
+	}
+
+	#headerTop > label:first-of-type > img {
+		display: none;
+	}
+	#headerTop > #headerMenu  {
+		width: 73%;
+		height: 15%;    	
+		list-style:none;
+    	text-align:right;
+		padding-top: 1.5em;
+		padding-right: 1em;
+		margin-top: -0em;
+		background: rgba(255,255,255, 0.8);
+		/*box-shadow: 2px 2px 4px #000000;*/
+	}
+
+	#headerTop > #headerMenu > nav > ul > li {
+		display: inline;
+	}
+
+	#headerTop > #headerMenu > nav > ul {
+		/*background: rgba(255,255,255, 0.7);*/
+		/*border-radius: 1em;*/
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a {
+		display:inline-block;
+    	text-decoration: none;
+    	color: 	#333;
+    	padding-left: 1em;
+    	padding-right: 1em;
+    	font-size: 75%;
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a:hover {
+		display:inline-block;
+    	text-decoration: none;
+    	/*color: #FFCC00;*/
+    	color: #ffa200;
+    	padding-left: 1em;
+    	padding-right: 1em;
+	}
+
+	#headerTop > #headerMenu > nav > ul > li > a.current {
+		display:inline-block;
+    	text-decoration: none;
+    	/*color: #FFCC00;*/
+    	color: #ffa200;
+    	padding-left: 1em;
+    	padding-right: 1em;
+	}
+
+	#headerTop > input {
+		display: none;
+	}
+
+/* zoek en klik */
+	#headerTop > #search > form  {
+		display: flex;
+		height: 15%;
+		padding-top: 1.5em;
+		background: rgba(255,255,255, 0.8);
+		border-radius: 2em;
+		margin-left: 30%;
+		margin-right: 30%;
+		padding-left: 2em;
+		padding-right: 2em;
+		align-items: baseline;
+	}
+
+	#headerTop > #search > form > span {
+		display: none;
+	}
+
+	#headerTop > #search > form > label > input {
+		border-radius: 1em;
+		line-height: 2em;
+		width: 190%;
+	}
+
+	#headerTop > #search > form > button {
+	  background: #ffd22e;
+	  background-image: -webkit-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -moz-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -ms-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: -o-linear-gradient(top, #ffd22e, #f5bc00);
+	  background-image: linear-gradient(to bottom, #ffd22e, #f5bc00);
+	  -webkit-border-radius: 28;
+	  -moz-border-radius: 28;
+	  border-radius: 2em;
+	  color: #ffffff;
+	  padding-left:  2em;
+	  padding-right: 2em;
+	  margin-left: 6em;
+	  height: 2.5em;
+	  text-decoration: none;
+	}
+
+
+	#headerTop >  label {
+		width: 5%;
+		height: 15%;
+		padding-top: 1em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	#headerTop > #search-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#headerTop > #search {
+	  display: none;
+	}
+	#headerTop > #search-toggle:checked + #search {
+	  display: block;
+	}
+
+/* profielpagina link (class) elena harris */
+	p.to-profile  {
+		width: 5%;
+		height: 15%;
+		padding-top: 1em;
+		margin-top: -0em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+
+
+
+
+
+/*opleiding*/
+	main  {
+		width: 50%;
+		padding: 1em;
+		padding-left: 2em;
+
+	}
+
+	main > p {
+
+	}
+
+	main > article > header {
+		background-color: #fff;
+	}
+
+	main > article > header > p > span {
+		color: #333;
+		display: inline;
+	}
+
+	main > article > header > h1 {
+		color: #333;
+	}
+
+	main > article > header > h2 {
+		display: none;
+	}
+
+	main > article > section {
+		background-color: #fff;
+	}
+
+	main > article > section > p > em {
+		color: #333;
+	}
+
+	main > article > section > ol  {
+		list-style: none;
+	}
+
+	main > article > video {
+
+	}
+
+	main > article > section > img {
+		width: 50%;
+		height: auto;
+		transition: 1.5s;
+	}
+
+	main > article > section > img:hover {
+		transform: rotate(20deg) scale(2);
+background-colr: pink;
+opacity:0.5;
+	}
+
+/* artikelen (Meer lezen?) */
+
+	.related {
+		padding: 1em;
+		width: 25%;
+	}
+
+	.related > article {
+		-webkit-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		-moz-box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		box-shadow: 1px 9px 14px -6px rgba(0,0,0,0.62);
+		padding: 1em;
+		background-color: #F9F9F9;
+		margin-bottom: 1em;
+
+	}
+	
+	.related > article > header {	
+		background-color: #F9F9F9;
+		font-size: 70%
+	}
+
+	.related > article > header > p > a {
+		color: 	#ffa200;
+	}
+
+	.related > article > header > p > a:hover {
+		color: 	#333;
+	}
+
+	.related > article >  p > a {
+		color: 	#ffa200;
+	}
+
+	.related > article >  p > a:hover {
+		color: 	#333;
+	}
+
+
+
+/* laatste mededelingen */
+	aside {
+		width: 25%;
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+
+	aside > label:first-of-type > img:first-of-type {
+		display: none;
+	}
+
+	aside > input {
+		display: none;
+	}
+
+	aside > #mededelingen > section > h2 > a {
+		color: #ffa200;
+		}
+
+	aside > #mededelingen > section > article > p > a{
+		color: #ffa200;
+	}
+
+	aside > #mededelingen > section >  article {
+		display: flex; /*De article flex maken om de footer onderaan te plaatsen*/
+		flex-direction: column;
+		background-color: #F9F9F9;
+		padding: 1em;
+		border-bottom-style: solid;
+	    border-bottom-width: 0.2em;
+	    border-bottom-color: #ffa200;
+		/*margin-bottom: 1em;*/
+	}
+
+
+	aside > #mededelingen > section > article > footer {
+		order: 1;
+		font-size: 70%;
+		background-color: #F9F9F9;
+	}
+
+	aside > #mededelingen > section > article > footer > p {
+		background-color: #F9F9F9;
+	}
+
+	aside > label:last-of-type > img:last-of-type {
+		display: none;
+	}
+
+	aside > #uitagenda > section > h2 > a {
+		color: #ffa200;
+		}
+
+	aside > #uitagenda > section > article > p > a {
+		color: #ffa200;
+	}
+
+	aside > #uitagenda > section >  article {
+		display: flex; /*De article flex maken om de footer onderaan te plaatsen*/
+		flex-direction: column;
+		background-color: #F9F9F9;
+		padding: 1em;
+		border-bottom-style: solid;
+	    border-bottom-width: 0.2em;
+	    border-bottom-color: #ffa200;
+		/*margin-bottom: 1em;*/
+	}
+
+	aside > #uitagenda > section > article > footer {
+		order: 1;
+		font-size: 70%;
+		background: #F9F9F9;
+		height: 8em;
+	}
+
+	aside > #uitagenda > section > article > p {
+		background-color: #F9F9F9;
+	}
+
+
+/* footer */
+	footer  {
+		width: 100%;
+		display: flex;
+		flex-direction; row;
+		flex-wrap: wrap;
+		background: url(img/cmd_beeldbank_surveillance_03.jpg) no-repeat center center fixed; 
+	  	-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	  	height: 35em;
+
+		padding: 2em;
+	}
+
+	footer > label {
+		width: 25%;
+		height: 25%;
+		text-align: center;
+		margin-left: 3%;
+		margin-right: 3%;
+		padding-top: 2.2em;
+		background: rgba(255,255,255, 0.8);
+	}
+
+	footer > label:hover {
+		width: 25%;
+		height: 25%;
+		text-align: center;
+		margin-left: 3%;
+		margin-right: 3%;
+		padding-top: 2.2em;
+		background: rgba(255, 162, 0, 0.8);
+		color: #fff;
+	}
+
+	/*footer > label > p {
+	  			padding-left: 10em;
+		padding-right: 10em;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}*/
+
+/*sitemap*/
+
+
+
+/* toggle footer sitemap */
+
+	#footerSitemap-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerSitemap {
+	  display: none;
+	}
+	#footerSitemap-toggle:checked + #footerSitemap {
+	  display: block;
+	}
+
+/*style footer sitemap*/
+	#footerSitemap {
+		background: rgba(255,255,255, 0.8);
+		padding: 1em;
+		margin-left: 1em; 
+		margin-right: 1em;
+		width: 100%;
+	}
+
+	#footerSitemap > #sitemap {
+		padding: 1em;
+		width: 100%;
+		order:1;
+	}
+
+	#footerSitemap > #sitemap > h2 {
+		display: none;
+	}
+
+	#footerSitemap > #sitemap  ul {
+	  line-height: 1;
+	  margin: 0;
+	  float: left;
+	  padding: 0;
+	}
+	#footerSitemap > #sitemap  ul li {
+	  float: left;
+	  list-style: none outside none;
+	  max-width: 15em;
+	  padding: 0;
+	  width: auto;
+	}
+	#footerSitemap > #sitemap  ul li a {
+	  border-bottom: 3px solid #E1E1E1;
+	  display: inline-block;
+	  color: #333;
+	  font-weight: bold;
+	  line-height: 1.2;
+	  padding: 0.5em 10px 0.5em 3px;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	}
+	#footerSitemap > #sitemap ul li ul {
+	}
+	#footerSitemap > #sitemap  ul li ul li {
+	  float: none;
+	  width: auto;
+	}
+	#footerSitemap > #sitemap  ul li ul li ul {
+	  margin-left: 15px;
+	}
+	#footerSitemap > #sitemap ul li ul li a {
+	  border-bottom: 0 none;
+	  border-left: 3px solid #E1E1E1;
+	  font-weight: normal;
+	  padding-left: 10px;
+	  text-transform: none;
+	  color: #666;
+	}
+	#footerSitemap > #sitemap   a:hover {
+	  background-color: rgba(255, 204, 0, 0.2);
+	  border-color: #ffa200;
+	}
+
+
+/*contact*/
+	#footerContact {
+		margin-left: 1em; 
+		margin-right: 1em;
+		background: rgba(255,255,255, 0.8);	
+		text-align: center;
+		width: 100%;	
+	}
+
+	#footerContact > #contact {
+		padding: 1em;
+		order:2;
+	}
+/*contact toggle*/
+	#footerContact-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerContact {
+	  display: none;
+	}
+	#footerContact-toggle:checked + #footerContact {
+	  display: block;
+	}
+
+/*zoekbalk*/
+	#search {	
+		width: 100%;
+		text-align: center;
+		order:5;
+	}
+
+	#search > h2 {
+  		display: none;
+	}
+
+
+
+/*About*/
+	#footerAbout > #about {
+		padding: 1em;
+		width: 100%;	
+		text-align: center;
+		order:3;
+	}
+
+	#footerAbout {
+		padding: 1em;
+		margin-left: 1em; 
+		margin-right: 1em;
+		background: rgba(255,255,255, 0.8);		
+	}
+
+
+/*About toggle*/
+	#footerAbout-toggle {
+	  display: none; /* hide the checkbox */
+	}
+	#footerAbout {
+	  display: none;
+	}
+	#footerAbout-toggle:checked + #footerAbout {
+	  display: block;
+	}
+
+/*credits*/
+	#credits {
+		background-color: #fff;
+		text-align: center;
+		margin: 0.5em;
+		width: 100%;
+		font-size: 70%;
+		order:6;
+	}
+
+	#credits > h2 {
+		display: none;
+	}	
+/*feedback*/
+	#feedback {
+		margin-top: 25em;
+		background-color: #fff;
+		text-align: center;
+		width: 100%;
+		order:4;
+	}
+
+	#feedback > a {
+	text-decoration: none;
+	color: #ffa200;
+	}
+
+
+
+
+
+/*Formulier*/
+/*
+input:required{
+	border: 1px solid red;
+}
+*/
+main {
+
+} 
+
+
+em {
+	color: red;
+}
+
+label {
+	display: block;
+	margin: 0 0 1em;
+}
+
+legend{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-size: 1.5em;
+}
+
+
+span {
+	display: block;
+}
+
+main > form > label, input[type="radio"] + label{
+	display: inline;
+}
+
+main > form {
+	background: linear-gradient(45deg, #fff, #FFCC00);
+	padding: 1em;
+	border-radius: 1em;
+}
+
+main > form > fieldset {
+	border:none;
+}
+
+main > form > fieldset > fieldset {
+	border:none;
+}
+
+/*formulier Javascript*/
+.is-invisible{
+	display: none;
+}
+.is-visible {
+	display: block;
+}
+
+
+
+}
+
+
